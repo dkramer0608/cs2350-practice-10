@@ -25,20 +25,19 @@ function hideForm() {
 
 }
 
-
 function hideCards() {
     document.querySelector("#myForm").classList.remove('d-none')
     document.querySelector("#cards").classList.add('d-none')
-    
-        if(localStorage.getItem('cards') && localStorage.getItem("cards") != '[]') {
-            return JSON.parse(localStorage.getItem('cards'))
-        }else {
-            return initial_cards
-        }
-    }
+
+}
 
 function getCards(){
-
+    if(localStorage.getItem('cards') && localStorage.getItem("cards") != '[]') {
+        return JSON.parse(localStorage.getItem('cards'))
+    }else {
+        return initial_cards
+    }
+ 
 }
 
 function addNewCard(event){
@@ -64,7 +63,7 @@ function displayCards() {
     let cards = getCards()
     let cards_html = ''
     let ndx = 0
-    for (let c of cards) {
+    for(let c of cards) {
         cards_html += `
             <div class="card col mb-3" data-ndx="${ndx}">
                 <div class="row g-0">
